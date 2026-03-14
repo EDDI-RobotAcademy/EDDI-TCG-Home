@@ -3,9 +3,11 @@
     import HeroContent from './HeroContent.svelte';
     import '../../effects/heroBackground.css';
     import '../../layout/baseFrame.css';
+    import type { HeroCtaType } from '../../../domain/model/heroCtaType';
+    import type { HomeModel } from '../../../domain/model/homeModel';
 
-    export let hero;
-    export let onPrimaryAction: () => void;
+    export let hero: HomeModel['hero'];
+    export let onPrimaryAction: (type: HeroCtaType) => void;
 </script>
 
 <style>
@@ -45,7 +47,7 @@
             title={hero.title}
             description={hero.description}
             ctaLabel={hero.primaryAction.label}
-            onClickCTA={onPrimaryAction}
+            onClickCTA={() => onPrimaryAction(hero.primaryAction.type)}
         />
     </div>
 </section>

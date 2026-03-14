@@ -2,9 +2,11 @@
     import RaceContent from './RaceContent.svelte';
     import '../../layout/baseFrame.css';
     import '../../overlay/frameOverlay.css';
+    import type { HomeModel } from '../../../domain/model/homeModel';
+    import type { RaceSelectType } from '../../../domain/model/raceSelectType';
 
-    export let race;
-    export let onPrimaryAction: (id: string) => void;
+    export let race: HomeModel['race'];
+    export let onPrimaryAction: (type: RaceSelectType) => void;
 </script>
 
 <style>
@@ -19,9 +21,7 @@
 </style>
 
 <section class="frame" style="--frame-height: 90vh;">
-    <div
-        class="frame-bg"
-    />
+    <div class="frame-bg"></div>
 
     <div class="frame-content">
          <RaceContent
