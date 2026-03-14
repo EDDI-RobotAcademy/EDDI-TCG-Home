@@ -1,0 +1,1 @@
+export type RaceSelectCtaType = 'SELECT_UNDEAD'| 'SELECT_TRENT' | 'SELECT_HUMAN';

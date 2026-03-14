@@ -1,9 +1,9 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import HeroFrame from './frames/hero/HeroFrame.svelte';
-    import IntroFrame from './frames/intro/IntroFrame.svelte';
-    import RaceFrame from './frames/race/RaceFrame.svelte';
-    import { useHome } from '../hooks/hooks.ts';
+    import HeroFrame from '../frames/hero/HeroFrame.svelte';
+    import IntroFrame from '../frames/intro/IntroFrame.svelte';
+    import RaceFrame from '../frames/race/RaceFrame.svelte';
+    import { useHome } from '../../application/hooks/useHome.ts';
 
     const home = useHome();
     const state = home.state;
@@ -26,17 +26,17 @@
 <div class="scene">
     <HeroFrame
         hero={$state.model.hero}
-        onPrimaryAction={home.onHeroPrimaryAction}
+        onPrimaryAction={home.executeHeroAction}
     />
 
     <IntroFrame
         intro={$state.model.intro}
-        onPrimaryAction={home.onIntroPrimaryAction}
+        onPrimaryAction={home.executeIntroAction}
     />
 
     <RaceFrame
         race={$state.model.race}
-        onPrimaryAction={home.onRacePrimaryAction}
+        onPrimaryAction={home.executeRaceSelectAction}
     />
 
 </div>

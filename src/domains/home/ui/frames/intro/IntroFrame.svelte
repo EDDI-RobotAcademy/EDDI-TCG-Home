@@ -27,9 +27,7 @@
 </style>
 
 <section class="frame" style="--frame-height: 70vh;">
-    <div
-        class="frame-bg"
-    />
+    <div class="frame-bg"></div>
 
     <!-- 프레임 장식 이미지 -->
     <img

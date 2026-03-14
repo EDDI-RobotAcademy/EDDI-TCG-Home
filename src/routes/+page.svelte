@@ -1,5 +1,5 @@
 <script>
-    import MainPage from '$home/views/HomeScene.svelte';
+    import MainPage from '$home/ui/views/HomeScene.svelte';
 </script>
 
 <MainPage />

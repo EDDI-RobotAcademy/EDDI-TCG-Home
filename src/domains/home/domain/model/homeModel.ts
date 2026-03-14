@@ -1,5 +1,6 @@
 import { HeroBackgroundTone } from './backgroundToneType';
 import { HeroCtaType } from './heroCtaType';
+import type { RaceSelectCtaType } from './raceSelectCtaType';
 
 export interface HomeModel {
     hero: {
@@ -25,7 +26,7 @@ export interface HomeModel {
     race: {
         headline: string;
         buttons: {
-            id: string;
+            type: RaceSelectCtaType;
             image: string;
         }[];
     };

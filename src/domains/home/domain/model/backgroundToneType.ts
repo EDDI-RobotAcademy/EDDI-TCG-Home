@@ -1,0 +1,1 @@
+export type HeroBackgroundTone = 'dark-fantasy' |'light-fantasy';

@@ -1,12 +1,13 @@
 <script lang="ts">
     import '../../overlay/frameOverlay.css';
+    import type { RaceSelectType } from '../../../domain/model/raceSelectType';
 
     export let headline: string;
     export let buttons: {
-        id: string;
+        type: RaceSelectType;
         image: string;
     }[];
-    export let onClickCTA: (id: string) => void;
+    export let onClickCTA: (type: RaceSelectType) => void;
 </script>
 
 <style>
@@ -34,7 +35,7 @@
             <img
                 class="race-button ease-out"
                 src={button.image}
-                on:click={() => onClickCTA(button.id)}
+                on:click={() => onClickCTA(button.type)}
             />
         {/each}
     </div>
