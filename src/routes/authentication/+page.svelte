@@ -1,5 +1,5 @@
 <script>
-    import LoginPage from '$authentication/pages/login/LoginPage.svelte';
+    import LoginScene from '$authentication//login/ui/views/LoginScene.svelte';
 </script>
 
-<LoginPage />
+<LoginScene />

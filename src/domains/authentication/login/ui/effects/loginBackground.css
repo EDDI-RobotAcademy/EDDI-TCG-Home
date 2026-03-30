@@ -1,0 +1,20 @@
+/* 전체 어둡게 (기본 톤 다운) */
+.overlay-dark {
+    position: absolute;
+    inset: 0;
+    background: rgba(3, 6, 12, 0.3);
+    z-index: 1;
+}
+
+/* 비네트 효과 (가장자리 어둡게) */
+.overlay-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 0.6) 70%,
+        rgba(0, 0, 0, 0.9) 100%
+    );
+    z-index: 2;
+}
