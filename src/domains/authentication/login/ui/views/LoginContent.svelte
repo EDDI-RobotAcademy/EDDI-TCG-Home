@@ -1,11 +1,11 @@
 <script lang="ts">
     import { LOGIN_DEFAULT } from '../../domain/defaultModel/loginDefaultModel';
+    import { useLogin } from '../../application/hooks/useLogin';
+
+    const login = useLogin();
+    const state = login.state;
 
     // Todo: 임시용으로 수정 필요
-    const handleLogin = (provider: string) => {
-        console.log(provider);
-    };
-
     const handleSignup = () => {
         console.log('회원가입 이동');
     };
@@ -32,7 +32,7 @@
 
     <!-- Buttons -->
     <div class="flex flex-col gap-5">
-        {#each LOGIN_DEFAULT.providers as provider}
+        {#each $state.model.providers as provider}
             <button
                 class={`
                     w-full py-3 rounded-md
@@ -45,7 +45,7 @@
                     ${provider.type === 'kakao' ? 'bg-[#3a3a1f]/50 hover:bg-[#4a4a2a]' : ''}
                     ${provider.type === 'naver' ? 'bg-[#1f3a2a]/50 hover:bg-[#2a4a3a]' : ''}
                 `}
-                on:click={() => handleLogin(provider.type)}
+                on:click={() => login.executeLoginAction(provider.type)}
             >
                 <!-- 아이콘 -->
                 <img
