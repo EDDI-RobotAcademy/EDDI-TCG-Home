@@ -1,16 +1,14 @@
 import { writable } from 'svelte/store';
 import type { LoginState } from './loginState';
-import type { LoginProvider } from '../../domain/model/loginModel';
-import { LOGIN_DEFAULT } from '../../domain/defaultModel/loginDefaultModel';
+import type { AuthProvider } from '../../domain/model/AuthProvider';
 import { loginCommands } from '../commands/loginCommands';
 
 export function useLogin() {
     const state = writable<LoginState>({
         status: 'IDLE',
-        model: LOGIN_DEFAULT,
     });
 
-    function executeLoginAction(type: LoginProvider) {
+    function executeLoginAction(type: AuthProvider) {
         const command = loginCommands[type];
 
         if (!command) {
