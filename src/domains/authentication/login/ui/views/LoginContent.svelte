@@ -1,9 +1,17 @@
 <script lang="ts">
-    import { LOGIN_DEFAULT } from '../../domain/defaultModel/loginDefaultModel';
     import { useLogin } from '../../application/hooks/useLogin';
+    import { onMount } from 'svelte';
+    import { getLoginProviders } from '../../application/usecase/getLoginProviders';
+    import { mapToLoginViewModel } from '../mapper/loginViewMapper';
+    import type { LoginViewModel } from '../model/loginViewModel';
+
+    let viewModels: LoginViewModel[] = [];
+    onMount(async () => {
+        const providers = await getLoginProviders();
+        viewModels = mapToLoginViewModel(providers);
+    });
 
     const login = useLogin();
-    const state = login.state;
 
     // Todo: 임시용으로 수정 필요
     const handleSignup = () => {
@@ -32,7 +40,7 @@
 
     <!-- Buttons -->
     <div class="flex flex-col gap-5">
-        {#each $state.model.providers as provider}
+        {#each viewModels as provider}
             <button
                 class={`
                     w-full py-3 rounded-md
@@ -41,9 +49,7 @@
                     flex items-center justify-center gap-3
                     transition-colors duration-200
                     cursor-pointer
-                    ${provider.type === 'google' ? 'bg-[#2a2f3a]/50 hover:bg-[#3a4150]' : ''}
-                    ${provider.type === 'kakao' ? 'bg-[#3a3a1f]/50 hover:bg-[#4a4a2a]' : ''}
-                    ${provider.type === 'naver' ? 'bg-[#1f3a2a]/50 hover:bg-[#2a4a3a]' : ''}
+                    ${provider.style}
                 `}
                 on:click={() => login.executeLoginAction(provider.type)}
             >
