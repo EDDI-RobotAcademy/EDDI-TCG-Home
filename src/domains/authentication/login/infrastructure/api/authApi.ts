@@ -14,8 +14,8 @@ export const authApi = {
         return url;
     },
 
-    // redirect 이후 로그인 처리
-    async loginWithCode(provider: AuthProvider, code: string) {
+    // redirect 이후 로그인 처리: 서버에 인가 코드 전달
+    async exchangeCodeForToken(provider: AuthProvider, code: string) {
         const response = await axiosInstance.spring.get(
             '/oauth/request-access-token-after-redirection',
             {
