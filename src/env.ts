@@ -1,7 +1,7 @@
 const env = {
     mode: import.meta.env.MODE,
     api: {
-        MAIN_API_URL: import.meta.env.VITE_MAIN_API_URL || 'http://localhost:8080',
+        MAIN_API_URL: import.meta.env.VITE_MAIN_API_URL || 'http://localhost:7777',
 
         kakao: import.meta.env.VITE_KAKAO_AUTH_URL,
         google: import.meta.env.VITE_GOOGLE_AUTH_URL,
